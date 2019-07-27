@@ -157,7 +157,6 @@ public class Splitwise {
      * @return JSON response from splitwise
      * @throws Exception
      */
-    //TODO test this
     public String addUserToGroup(Map<String, String> userDetails) throws Exception {
         Response response = this.util.makeRequest(URL.ADD_USER_TO_GROUP, Verb.POST, userDetails);
         if (response.getCode() == 200)
@@ -172,7 +171,6 @@ public class Splitwise {
      * @return JSON response from splitwise
      * @throws Exception
      */
-    //TODO test this
     public String removeUserFromGroup(final String groupId, final String userId) throws Exception {
         Map<String, String> details = new HashMap<String, String>(){{
            put(Strings.USER_ID, userId);
