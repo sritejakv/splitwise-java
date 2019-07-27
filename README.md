@@ -1,7 +1,10 @@
 # splitwise-java
 **Java SDK for Splitwise**
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.sritejakv/splitwise.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.sritejakv%22%20AND%20a:%22splitwise%22)
+
 ***
-This is Java SDK for Splitwise. Currently the following [splitwise API](http://dev.splitwise.com/#introduction) calls 
+This library contains implementation of Splitwise SDK in Java. Currently the following [splitwise API](http://dev.splitwise.com/#introduction) calls 
 are supported,
 
 `get_current_user`
@@ -25,7 +28,28 @@ are supported,
 `get_currencies`
 `get_categories`
 
+Other API implementations are expected to follow as future updates.
 Pull requests and bugs are welcomed.
+
+**Maven**
+***
+Add the following lines in **pom.xml** of the maven project to use the library,
+
+```xml
+<dependency>
+  <groupId>com.github.sritejakv</groupId>
+  <artifactId>splitwise</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
+**Gradle**
+***
+Add the following line in Gradle projects to use the library,
+
+```$xslt
+compile("com.github.sritejakv:splitwise:1.0")
+```
 
 **Authentication**
 ***
@@ -296,4 +320,4 @@ Test cases for two vital classes `Splitwise` and `OAuthUtl` are included in the 
 
 **License**
 ***
-MIT
+[MIT](http://www.opensource.org/licenses/mit-license.php)
