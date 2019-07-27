@@ -192,8 +192,8 @@ Map<String, String> userDetails = new HashMap<String, String>(){{
     put("first_name", "Lorem");
     put("last_name", "Ipsum");
     put("email", "hello@world.com");
-    put("user_id", 324343);
-    put("group_id", 123);
+    put("user_id", "324343");
+    put("group_id", "123");
 }}
 String response = splitwise.addUserToGroup(userDetails);
 ```
@@ -203,8 +203,8 @@ String response = splitwise.addUserToGroup(userDetails);
 `removeUserFromGroup(groupId, userId)` can be used to remove a splitwise user from a splitwise group.
 
 ```$xslt
-int userId = 324343;
-int groupId = 123;
+String userId = "324343";
+String groupId = "123";
 String response = splitwise.removeUserFromGroup(groupId, userId);
 ```
 
@@ -240,7 +240,7 @@ String response = splitwise.createFriend("lorem", "ipsum", "hello@world.com");
 `deleteFriend(friendId)` can be used to delete a friend from Splitwise.
 
 ```$xslt
-String friendId = 345;
+String friendId = "345";
 String response = splitwise.deleteFriend(friendId);
 ```
 
