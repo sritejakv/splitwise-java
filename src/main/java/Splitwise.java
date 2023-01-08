@@ -86,9 +86,11 @@ public class Splitwise {
     /**
      * Update the parameters of the current user.
      * @param id splitwise id of the user
-     * @param details details to be updated (http://dev.splitwise.com/?javascript#update_user-id)
+     * @param details details to be updated
      * @return JSON response string from splitwise
      * @throws Exception
+     * @see <a href="https://dev.splitwise.com/#tag/users/paths/~1update_user~1{id}/post">Splitwise API
+     * documentation</a> for required and optional parameters
      */
     public String updateUser(String id, Map<String, String> details) throws Exception {
         String url = String.format(URL.UPDATE_USER_WITH_ID, id);
@@ -126,9 +128,11 @@ public class Splitwise {
 
     /**
      * Creates a splitwise group.
-     * @param details details of the group (http://dev.splitwise.com/?javascript#create_group)
+     * @param details details of the group
      * @return JSON response from splitwise
      * @throws Exception
+     * @see <a href="https://dev.splitwise.com/#tag/groups/paths/~1create_group/post">Splitwise API
+     * documentation</a> for required and optional parameters
      */
     public String createGroup(Map<String, String> details) throws Exception {
         Response response = this.util.makeRequest(URL.CREATE_GROUP_URL, Verb.POST, details);
@@ -153,9 +157,11 @@ public class Splitwise {
 
     /**
      * Add user to a splitwise group.
-     * @param userDetails details of the user to be added (http://dev.splitwise.com/?javascript#add_user_to_group)
+     * @param userDetails details of the user to be added
      * @return JSON response from splitwise
      * @throws Exception
+     * @see <a href="https://dev.splitwise.com/#tag/groups/paths/~1add_user_to_group/post">Splitwise API
+     * documentation</a> for required and optional parameters
      */
     public String addUserToGroup(Map<String, String> userDetails) throws Exception {
         Response response = this.util.makeRequest(URL.ADD_USER_TO_GROUP, Verb.POST, userDetails);
@@ -173,8 +179,8 @@ public class Splitwise {
      */
     public String removeUserFromGroup(final String groupId, final String userId) throws Exception {
         Map<String, String> details = new HashMap<String, String>(){{
-           put(Strings.USER_ID, userId);
-           put(Strings.GROUP_ID, groupId);
+            put(Strings.USER_ID, userId);
+            put(Strings.GROUP_ID, groupId);
         }};
         Response response = this.util.makeRequest(URL.REMOVE_USER_FROM_GROUP, Verb.POST, details);
         if (response.getCode() == 200)
@@ -251,6 +257,21 @@ public class Splitwise {
     public String getComments(String expenseId) throws Exception {
         String url = String.format(URL.GET_COMMENTS_FOR_EXPENSE, expenseId);
         Response response = this.util.makeRequest(url, Verb.GET);
+        if (response.getCode() == 200)
+            return response.getBody();
+        return null;
+    }
+
+    /**
+     * Creates a splitwise expense.
+     * @param details details of the expense
+     * @return JSON response from splitwise
+     * @throws Exception
+     * @see <a href="https://dev.splitwise.com/#tag/expenses/paths/~1create_expense/post">Splitwise API
+     * documentation</a> for required and optional parameters
+     */
+    public String createExpense(Map<String, String> details) throws Exception {
+        Response response = this.util.makeRequest(URL.CREATE_EXPENSE, Verb.POST, details);
         if (response.getCode() == 200)
             return response.getBody();
         return null;
