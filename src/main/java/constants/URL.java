@@ -27,6 +27,7 @@ public class URL {
     public static final String DELETE_FRIEND_WITH_ID = BASE_URL + "/delete_friend/%s";
 
     //URLs for Expenses API
+    public static final String CREATE_EXPENSE = BASE_URL + "/create_expense";
     public static final String GET_EXPENSES = BASE_URL + "/get_expenses";
     public static final String GET_EXPENSE_WITH_ID = BASE_URL + "/get_expense/%s";
     public static final String DELETE_EXPENSE_WITH_ID = BASE_URL + "/delete_expense/%s";
